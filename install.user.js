@@ -2,7 +2,7 @@
 // @name         Oriflame Media Assistant
 // @description  An Assistant for generating and downloading Oriflame Media (including Catalog & Products)
 // @author       Rizal Nurhidayat
-// @version      0.2
+// @version      0.2.1
 // @copyright    2021, rzlnhd (https://github.com/rzlnhd/)
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
 // @date         2021-8-1
@@ -21,7 +21,10 @@
 // @resource css https://raw.githubusercontent.com/rzlnhd/Oriflame-Media-Assistent/master/assets/style.min.css
 // ==/UserScript==
 
-const xmlReq = ("function" == typeof GM_xmlhttpRequest) ? GM_xmlhttpRequest : GM.xmlhttpRequest,
+const getElmAll = q => {return getElmAll(q.trim());},
+    getById = q => {return document.getElementById(q.trim());},
+    getElm = q => {return getElm(q.trim());},
+    xmlReq = ("function" == typeof GM_xmlhttpRequest) ? GM_xmlhttpRequest : GM.xmlhttpRequest,
     getRes = ("function" == typeof GM_getResourceText) ? GM_getResourceText : GM.getResourceText,
     download = ("function" == typeof GM_download) ? GM_download : GM.download;
 
@@ -32,7 +35,7 @@ var thisUrl = window.location.href, doing = false;
 
     let timer = setInterval(general, 1000);
     function general(){
-        if(!!document.querySelector('article') || !!document.querySelector("div[class*='image_']")){
+        if(!!getElm('article') || !!getElm("div[class*='image_']")){
             initElements(thisUrl); clearInterval(timer);
         }
     }
@@ -48,17 +51,17 @@ function toArr(url){
 
 function initElements(url){
     if(url.includes('catalogue')){
-        let elm = document.querySelector("article[class^='zero-slide']");
+        let elm = getElm("article[class^='zero-slide']");
         addDownloadBtn(elm, 'Download All Catalog Images');
     } else if(url.includes('code')){
-        let elms = document.querySelectorAll("div[class*='image_']");
+        let elms = getElmAll("div[class*='image_']");
         for(let elm of elms){addDownloadBtn(elm, 'Download This Image');}
     }
     addStyle(getRes('css'));
 }
 
 function addDownloadBtn(elm, title){
-    let body = document.querySelector('body'), panel = document.createElement('div'), btn = document.createElement('div');
+    let body = getElm('body'), panel = document.createElement('div'), btn = document.createElement('div');
     panel.classList.add("oriassist-download"); btn.classList.add("oriassist-downloadBtn"); btn.title = title;
     panel.appendChild(btn); elm ? elm.prepend(panel) : body.append(panel);
     panel.addEventListener('click', proceedAction);
