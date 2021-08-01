@@ -2,7 +2,7 @@
 // @name         Oriflame Media Assistant
 // @description  An Assistant for generating and downloading Oriflame Media (including Catalog & Products)
 // @author       Rizal Nurhidayat
-// @version      0.2.1
+// @version      0.2.2
 // @copyright    2021, rzlnhd (https://github.com/rzlnhd/)
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
 // @date         2021-8-1
@@ -21,9 +21,9 @@
 // @resource css https://raw.githubusercontent.com/rzlnhd/Oriflame-Media-Assistent/master/assets/style.min.css
 // ==/UserScript==
 
-const getElmAll = q => {return getElmAll(q.trim());},
+const getElmAll = q => {return document.querySelectorAll(q.trim());},
     getById = q => {return document.getElementById(q.trim());},
-    getElm = q => {return getElm(q.trim());},
+    getElm = q => {return document.querySelector(q.trim());},
     xmlReq = ("function" == typeof GM_xmlhttpRequest) ? GM_xmlhttpRequest : GM.xmlhttpRequest,
     getRes = ("function" == typeof GM_getResourceText) ? GM_getResourceText : GM.getResourceText,
     download = ("function" == typeof GM_download) ? GM_download : GM.download;
