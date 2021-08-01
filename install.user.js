@@ -2,7 +2,7 @@
 // @name         Oriflame Media Assistant
 // @description  An Assistant for generating and downloading Oriflame Media (including Catalog & Products)
 // @author       Rizal Nurhidayat
-// @version      0.1
+// @version      0.2
 // @copyright    2021, rzlnhd (https://github.com/rzlnhd/)
 // @license      GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
 // @date         2021-8-1
@@ -16,9 +16,9 @@
 // @grant        GM.getResourceText
 // @grant        GM.xmlhttpRequest
 // @grant        GM.download
-// @updateURL    https://raw.githubusercontent.com/rzlnhd/WhatsApp-Blast/master/update.meta.js
-// @downloadURL  https://raw.githubusercontent.com/rzlnhd/WhatsApp-Blast/master/install.user.js
-// @resource css https://raw.githubusercontent.com/rzlnhd/WhatsApp-Blast/master/assets/style.min.css
+// @updateURL    https://raw.githubusercontent.com/rzlnhd/Oriflame-Media-Assistent/master/update.meta.js
+// @downloadURL  https://raw.githubusercontent.com/rzlnhd/Oriflame-Media-Assistent/master/install.user.js
+// @resource css https://raw.githubusercontent.com/rzlnhd/Oriflame-Media-Assistent/master/assets/style.min.css
 // ==/UserScript==
 
 const xmlReq = ("function" == typeof GM_xmlhttpRequest) ? GM_xmlhttpRequest : GM.xmlhttpRequest,
